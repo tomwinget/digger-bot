@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "digger bot",
+  "main": "server.js",
+  "scripts": {
+    "test": "ping"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "discord.js": "^11.3.2",
+    "express": "^4.16.3"
+  }
+}
