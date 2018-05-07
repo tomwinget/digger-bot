@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = "";
+const token = "NDQxNjg2MzQyODU5MDk2MDY0.Dcz4BQ.OywL3F2tqssSUOCx6rGJT0PSxmo";
 
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
