@@ -133,7 +133,6 @@ client.on('message', message => {
     if(emoji !== null){
       prevMessage.react(emoji);
     }
-    message.delete();
     del = true;
   }
   if(!del){
@@ -142,5 +141,6 @@ client.on('message', message => {
     del = false;
   }
 });
+message.delete();
 
 client.login(token);
