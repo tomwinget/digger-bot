@@ -72,6 +72,8 @@ const triggers = {
 	"party":party,
 	"normies":normies
   }	
+var prevMessage = null;
+var del = false;
 
 client.on('message', message => {
   if(message.author.bot) return;
@@ -126,6 +128,19 @@ client.on('message', message => {
       message.react(emojilist[i]);
     }
   } 
+  if (message.content.charAt(0) === '^') {
+    var emoji = message.guild.emojis.find("name",message.content.substring(1));
+    if(emoji !== null){
+      prevMessage.react(emoji);
+    }
+    message.delete();
+    del = true;
+  }
+  if(!del){
+    prevMessage = message;
+  }else{
+    del = false;
+  }
 });
 
 client.login(token);
