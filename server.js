@@ -76,7 +76,17 @@ var prevMessage = null;
 var del = false;
 
 client.on('message', message => {
+  var emojilist = Array.from(message.guild.emojis.values());
   if(message.author.bot) return;
+  if (message.content.charAt(0) === '^') {
+    for (var i = 0; i< emojilist.length; i++){
+      if(message.content.substring(1).toLowerCase().includes(emojilist[i].name.toLowerCase())){
+        prevMessage.react(emojilist[i]);
+        message.delete();
+        return;
+      }
+    } 
+  }
   var triggerlist = Object.keys(triggers);
   for (var i = 0; i<triggerlist.length; i++){
     if(message.content.toLowerCase().includes(triggerlist[i])){
@@ -122,25 +132,12 @@ client.on('message', message => {
     const emojiList = message.guild.emojis.map(e=>e.toString()).join(" ");
     message.channel.send(emojiList);
   }
-  var emojilist = Array.from(message.guild.emojis.values());
   for (var i = 0; i< emojilist.length; i++){
     if(message.content.toLowerCase().includes(emojilist[i].name.toLowerCase())){
       message.react(emojilist[i]);
     }
   } 
-  if (message.content.charAt(0) === '^') {
-    var emoji = message.guild.emojis.find("name",message.content.substring(1));
-    if(emoji !== null){
-      prevMessage.react(emoji);
-    }
-    del = true;
-  }
-  if(!del){
-    prevMessage = message;
-  }else{
-    del = false;
-  }
+  prevMessage = message;
 });
-message.delete();
 
 client.login(token);
