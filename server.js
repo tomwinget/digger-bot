@@ -1,6 +1,7 @@
+const CONFIG = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = "";
+const token = CONFIG.token;
 
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
@@ -73,8 +74,20 @@ const triggers = {
 	"normies":normies
   }	
 
+var prevMessage = null;
+
 client.on('message', message => {
   if(message.author.bot) return;
+  var emojilist = Array.from(message.guild.emojis.values());
+  if (message.content.charAt(0) === '^') {
+    for (var i = 0; i < emojilist.length; i++){
+      if(message.content.substring(1).toLowerCase().includes(emojilist[i].name.toLowerCase())){
+	prevMessage.react(emojilist[i]);
+	message.delete();
+	return;
+      }
+    }
+  }
   var triggerlist = Object.keys(triggers);
   for (var i = 0; i<triggerlist.length; i++){
     if(message.content.toLowerCase().includes(triggerlist[i])){
@@ -126,6 +139,7 @@ client.on('message', message => {
       message.react(emojilist[i]);
     }
   } 
+  prevMessage = message;
 });
 
 client.login(token);
