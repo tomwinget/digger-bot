@@ -11,5 +11,8 @@
   "devDependencies": {
     "discord.js": "^11.3.2",
     "express": "^4.16.3"
+  },
+  "dependencies": {
+    "discord": "^0.8.2"
   }
 }
