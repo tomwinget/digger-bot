@@ -73,7 +73,7 @@ const triggers = {
 	"logs":"The Lincoln logs look on the Lincoln logs unlock the Lincoln logs in laws suck my linking logs.",
 	"developers":developers,
 	"party":party,
-	"normies":normies
+	"normies":normies,
   "shook":shook,
   " dio ":dio,
   "sono chi no sadame":"JOOOOOOOOO JO",
