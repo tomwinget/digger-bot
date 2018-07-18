@@ -30,6 +30,8 @@ const developers=new Discord.RichEmbed().setImage("https://thumbs.gfycat.com/Che
 const party=new Discord.RichEmbed().setImage("https://i.imgur.com/mP8ZRTX.gif");
 const normies=new Discord.RichEmbed().setImage("https://i.imgur.com/8bdx5RF.gif");
 const triggered=new Discord.RichEmbed().setImage("https://i.imgur.com/5HAvEKk.gif");
+const dio=new Discord.RichEmbed().setImage("https://i.kym-cdn.com/photos/images/original/000/754/539/566.gif");
+const shook=new Discord.RichEmbed().setImage("https://www.tenor.co/ytvp.gif");
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -72,6 +74,11 @@ const triggers = {
 	"developers":developers,
 	"party":party,
 	"normies":normies
+  "shook":shook,
+  " dio ":dio,
+  "sono chi no sadame":"JOOOOOOOOO JO",
+  "power":"KONO POWA",
+  "society":":b:️:o2:️:cross:️:cross:️:o2:️:scorpius:️   :cross:️🅴:x::cross:"
   }	
 var prevMessage = null;
 var del = false;
