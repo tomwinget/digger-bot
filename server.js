@@ -31,7 +31,7 @@ const party=new Discord.RichEmbed().setImage("https://i.imgur.com/mP8ZRTX.gif");
 const normies=new Discord.RichEmbed().setImage("https://i.imgur.com/8bdx5RF.gif");
 const triggered=new Discord.RichEmbed().setImage("https://i.imgur.com/5HAvEKk.gif");
 const dio=new Discord.RichEmbed().setImage("https://i.kym-cdn.com/photos/images/original/000/754/539/566.gif");
-const shook=new Discord.RichEmbed().setImage("https://tenor.com/view/angry-fist-arthur-gif-5794225");
+const shook=new Discord.RichEmbed().setImage("https://media1.tenor.com/images/74615c72cdb521769a2064c11e541d22/tenor.gif?itemid=5794225")
 
 client.on('ready', () => {
   console.log('I am ready!');
