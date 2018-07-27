@@ -32,54 +32,56 @@ const normies=new Discord.RichEmbed().setImage("https://i.imgur.com/8bdx5RF.gif"
 const triggered=new Discord.RichEmbed().setImage("https://i.imgur.com/5HAvEKk.gif");
 const dio=new Discord.RichEmbed().setImage("https://i.kym-cdn.com/photos/images/original/000/754/539/566.gif");
 const shook=new Discord.RichEmbed().setImage("https://media1.tenor.com/images/74615c72cdb521769a2064c11e541d22/tenor.gif?itemid=5794225")
+const bee=new Discord.RichEmbed().setImage("https://i.imgur.com/wes7iyz.gif")
 
 client.on('ready', () => {
   console.log('I am ready!');
 });
 
 const triggers = {
-	"420":"حشش",
-	"blaze it":"حشش",
-	"thick":"Awesome pics. Great size. Look thick. Solid. Tight. Keep us all posted on your continued progress with any new progress pics or vid clips. Show us what you got man. Wanna see how freakin' huge, solid, thick and tight you can get. Thanks for the motivation.",
-	"thicc":"Awesome pics. Great size. Look thick. Solid. Tight. Keep us all posted on your continued progress with any new progress pics or vid clips. Show us what you got man. Wanna see how freakin' huge, solid, thick and tight you can get. Thanks for the motivation.",
-	"chuck":"𝓹𝓻𝓪𝓲𝓼𝓮 𝓫𝓮 𝓾𝓷𝓽𝓸 𝓱𝓲𝓶",
-	"chuckco":"𝓹𝓻𝓪𝓲𝓼𝓮 𝓫𝓮 𝓾𝓷𝓽𝓸 𝓱𝓲𝓶",
-	"/not too":Jeans,
-	"not too":Jeans,
-	"jeans":Jeans,
-	"fuck yea":trashdove,
-	"hell yea":trashdove,
-	"trashdove":trashdove,
-	"cancer":"WARNING: This message contains chemicals known to the State of California to cause cancer and birth defects or other reproductive harm.",
-	"be humble":"Sit down",
-	"sit down":"Be humble (lil bitch)",
-	"fake news":"WRONG!",
-	"bug":bryanBug,
-	"children":children,
-	"good shit":"👌👀👌👀👌👀👌👀👌👀 good shit go౦ԁ sHit👌 thats ✔ some good👌👌shit     right👌👌there👌👌👌 right✔there ✔✔if i do ƽaү so my self 💯 i say so 💯 thats what im talking about right ther    e right there (chorus: ʳᶦᵍʰᵗ ᵗʰᵉʳᵉ) mMMMMᎷМ💯 👌👌 👌НO0ОଠOOOOOОଠଠOoooᵒᵒᵒᵒᵒᵒᵒᵒᵒ👌 👌👌 👌 💯 👌 👀 👀 👀 👌👌",
-	"understood":understood,
-	"please stop":"Threading isn't enabled yet, enjoy the 15 cummies",
-	"cash me outside":cashMeOutside,
-	"jabbascript":jabbascript,
-	"git gud":gitGud,
-	"nani":nani,
-	"backdoor":backdoor,
-	"ianal":backdoor,
-	"good bot":"fuck you!",
-	"triggered":"DIGGER-ED!",
-	"hyperlul":lolHarold,
-	"hue":hueHueHue,
-	"never":never,
-	"logs":"The Lincoln logs look on the Lincoln logs unlock the Lincoln logs in laws suck my linking logs.",
-	"developers":developers,
-	"party":party,
-	"normies":normies,
+  "420":"حشش",
+  "blaze it":"حشش",
+  "thick":"Awesome pics. Great size. Look thick. Solid. Tight. Keep us all posted on your continued progress with any new progress pics or vid clips. Show us what you got man. Wanna see how freakin' huge, solid, thick and tight you can get. Thanks for the motivation.",
+  "thicc":"Awesome pics. Great size. Look thick. Solid. Tight. Keep us all posted on your continued progress with any new progress pics or vid clips. Show us what you got man. Wanna see how freakin' huge, solid, thick and tight you can get. Thanks for the motivation.",
+  "chuck":"𝓹𝓻𝓪𝓲𝓼𝓮 𝓫𝓮 𝓾𝓷𝓽𝓸 𝓱𝓲𝓶",
+  "chuckco":"𝓹𝓻𝓪𝓲𝓼𝓮 𝓫𝓮 𝓾𝓷𝓽𝓸 𝓱𝓲𝓶",
+  "/not too":Jeans,
+  "not too":Jeans,
+  "jeans":Jeans,
+  "fuck yea":trashdove,
+  "hell yea":trashdove,
+  "trashdove":trashdove,
+  "cancer":"WARNING: This message contains chemicals known to the State of California to cause cancer and birth defects or other reproductive harm.",
+  "be humble":"Sit down",
+  "sit down":"Be humble (lil bitch)",
+  "fake news":"WRONG!",
+  "bug":bryanBug,
+  "children":children,
+  "good shit":"👌👀👌👀👌👀👌👀👌👀 good shit go౦ԁ sHit👌 thats ✔ some good👌👌shit     right👌👌there👌👌👌 right✔there ✔✔if i do ƽaү so my self 💯 i say so 💯 thats what im talking about right ther    e right there (chorus: ʳᶦᵍʰᵗ ᵗʰᵉʳᵉ) mMMMMᎷМ💯 👌👌 👌НO0ОଠOOOOOОଠଠOoooᵒᵒᵒᵒᵒᵒᵒᵒᵒ👌 👌👌 👌 💯 👌 👀 👀 👀 👌👌",
+  "understood":understood,
+  "please stop":"Threading isn't enabled yet, enjoy the 15 cummies",
+  "cash me outside":cashMeOutside,
+  "jabbascript":jabbascript,
+  "git gud":gitGud,
+  "nani":nani,
+  "backdoor":backdoor,
+  "ianal":backdoor,
+  "good bot":"fuck you!",
+  "triggered":"DIGGER-ED!",
+  "hyperlul":lolHarold,
+  "hue":hueHueHue,
+  "never":never,
+  "logs":"The Lincoln logs look on the Lincoln logs unlock the Lincoln logs in laws suck my linking logs.",
+  "developers":developers,
+  "party":party,
+  "normies":normies,
   "shook":shook,
   " dio ":dio,
   "sono chi no sadame":"JOOOOOOOOO JO",
   "power":"KONO POWA",
-  "society":":b:️:o2:️:cross:️:cross:️:o2:️:scorpius:️   :cross:️🅴:x::cross:"
-  }	
+  "society":":b:️:o2:️:cross:️:cross:️:o2:️:scorpius:️   :cross:️🅴:x::cross:",
+  "bee": bee
+}
 var prevMessage = null;
 var del = false;
 
@@ -92,9 +94,9 @@ client.on('message', message => {
   if (message.content.charAt(0) === '^') {
     for (var i = 0; i < emojilist.length; i++){
       if(message.content.substring(1).toLowerCase().includes(emojilist[i].name.toLowerCase())){
-	prevMessage.react(emojilist[i]);
-	message.delete();
-	return;
+  prevMessage.react(emojilist[i]);
+  message.delete();
+  return;
       }
     }
   }
