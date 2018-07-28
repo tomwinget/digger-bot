@@ -1,7 +1,7 @@
 const CONFIG = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = CONFIG.token;
+const token = process.env.token;
 
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
