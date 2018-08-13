@@ -88,15 +88,17 @@ var del = false;
 var prevMessage = null;
 
 client.on('message', message => {
-  var emojilist = Array.from(message.guild.emojis.values());
   if(message.author.bot) return;
   var emojilist = Array.from(message.guild.emojis.values());
   if (message.content.charAt(0) === '^') {
     for (var i = 0; i < emojilist.length; i++){
       if(message.content.substring(1).toLowerCase().includes(emojilist[i].name.toLowerCase())){
-  prevMessage.react(emojilist[i]);
-  message.delete();
-  return;
+        prevMessage.react(emojilist[i]);
+        message.delete();
+        return;
+      }
+      if(emojilist[i].name.toLowerCase() === 'fortnite' && message.content.toLowerCase().includes('retard'){
+        message.react(emojilist[i]);
       }
     }
   }
