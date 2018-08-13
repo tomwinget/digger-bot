@@ -97,7 +97,7 @@ client.on('message', message => {
         message.delete();
         return;
       }
-      if(emojilist[i].name.toLowerCase() === 'fortnite' && message.content.toLowerCase().includes('retard'){
+      if(emojilist[i].name.toLowerCase() === 'fortnite' && message.content.toLowerCase().includes('retard')){
         message.react(emojilist[i]);
       }
     }
