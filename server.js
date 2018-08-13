@@ -97,9 +97,6 @@ client.on('message', message => {
         message.delete();
         return;
       }
-      if(emojilist[i].name.toLowerCase() === 'fortnite' && message.content.toLowerCase().includes('retard')){
-        message.react(emojilist[i]);
-      }
     }
   }
   var triggerlist = Object.keys(triggers);
@@ -148,6 +145,9 @@ client.on('message', message => {
     message.channel.send(emojiList);
   }
   for (var i = 0; i< emojilist.length; i++){
+    if(emojilist[i].name.toLowerCase() === 'fortnite' && message.content.toLowerCase().includes('retard')){
+      message.react(emojilist[i]);
+    }
     if(message.content.toLowerCase().includes(emojilist[i].name.toLowerCase())){
       message.react(emojilist[i]);
     }
