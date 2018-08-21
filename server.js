@@ -2,7 +2,6 @@ const CONFIG = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.env.token;
-const vape-id = process.env.vape-id;
 
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
