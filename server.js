@@ -98,7 +98,8 @@ client.on('message', message => {
     var hash = Math.floor(Math.random() * 100000000);
     newMessage = newMessage.concat("\n -- "+hash.toString());
     newMessage = newMessage.concat("\n```");
-    message.guild.channels.find("name","vape-naysh").sendMessage(newMessage);
+    prevMessage.guild.channels.find("name","vape-naysh").sendMessage(newMessage);
+    return;
   }
   if (message.content.charAt(0) === '^') {
     for (var i = 0; i < emojilist.length; i++){
