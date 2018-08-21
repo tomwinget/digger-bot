@@ -89,15 +89,30 @@ var del = false;
 
 var prevMessage = null;
 
+var emojiReg = /<a:/gi, emos=[];
+
 client.on('message', message => {
   if(message.author.bot) return;
   if (message.channel.type === 'dm' && message.content.charAt(0) === '>') {
     var newMessage = "```css\n";
-    newMessage = newMessage.concat(message.content);
+    var messageText = message.content;
+    var i = 0;
+    while((result = emojiReg.exec(messageText))){
+      var emo = messageText.substring(messageText.indexOf(':',result.index),messageText.indexOf(':',result.index+4));
+      emos.push(client.emojis.find(e => e.name === emo));
+      messageText = messageText.slice(0,result.index)+'${emos[i]'+messageText.slice(messageText.indexOf('>',result.index));
+      i++;
+    }
+    newMessage = newMessage.concat(messageText);
     var hash = Math.floor(Math.random() * 100000000);
     newMessage = newMessage.concat("\n -- "+hash.toString());
     newMessage = newMessage.concat("\n```");
-    prevMessage.guild.channels.find("name","vape-naysh").sendMessage(newMessage);
+    message.client.channels.find(c=>c.name==='vape-naysh').sendMessage(newMessage);
+    emos=[];
+    return;
+  }
+  if (message.channel.type === 'dm' && message.content.charAt(0) != '>'){
+    message.reply('l2greentextpls, you need to start with the \'>\' char');
     return;
   }
   var emojilist = Array.from(message.guild.emojis.values());
