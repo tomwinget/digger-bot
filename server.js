@@ -2,6 +2,7 @@ const CONFIG = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.env.token;
+const vape-id = process.env.vape-id;
 
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
@@ -92,11 +93,13 @@ var prevMessage = null;
 client.on('message', message => {
   if(message.author.bot) return;
   var emojilist = Array.from(message.guild.emojis.values());
-  if (message.content.charAt(0) === '>') {
+  if (typeOf(message.channel) === 'DMChannel' && message.content.charAt(0) === '>') {
     var newMessage = "```css\n";
     newMessage = newMessage.concat(message.content);
+    var hash = Math.floor(Math.random() * 100000000);
+    newMessage = newMessage.concat("\n -- "+hash.toString());
     newMessage = newMessage.concat("\n```");
-    message.edit(newMessage);
+    message.guild.channels.find("name","vape-naysh").sendMessage(newMessage);
   }
   if (message.content.charAt(0) === '^') {
     for (var i = 0; i < emojilist.length; i++){
