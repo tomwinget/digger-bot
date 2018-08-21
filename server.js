@@ -92,6 +92,12 @@ var prevMessage = null;
 client.on('message', message => {
   if(message.author.bot) return;
   var emojilist = Array.from(message.guild.emojis.values());
+  if (message.content.charAt(0) === '>') {
+    var newMessage = "```css\n";
+    newMessage = newMessage.concat(message.content);
+    newMessage = newMessage.concat("\n```");
+    message.edit(newMessage);
+  }
   if (message.content.charAt(0) === '^') {
     for (var i = 0; i < emojilist.length; i++){
       if(message.content.substring(1).toLowerCase().includes(emojilist[i].name.toLowerCase())){
