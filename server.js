@@ -8,6 +8,7 @@ function sleep (time) {
 }
 
 // Constants
+const dab = new Discord.RichEmbed().setImage("https://media.giphy.com/media/26uTt19akcFxRFCy4/giphy.gif");
 const fortnite = new Discord.RichEmbed().setImage("https://i.redd.it/lwq9doves6g11.gif");
 const jebpleaseclap = new Discord.RichEmbed().setImage("https://media.giphy.com/media/l0NwPo3VHujpJDI4w/giphy.gif");
 const trashdove = new Discord.RichEmbed().setImage("http://i.imgur.com/50wBJit.gif");
@@ -89,7 +90,7 @@ var del = false;
 
 var prevMessage = null;
 
-var emojiReg = /<a:/gi, emos=[];
+var dabReg = /dab/gi, emojiReg = /<a:/gi, emos=[];
 
 client.on('message', message => {
   if(message.author.bot) return;
@@ -107,7 +108,7 @@ client.on('message', message => {
     var hash = Math.floor(Math.random() * 100000000);
     newMessage = newMessage.concat("\n -- "+hash.toString());
     newMessage = newMessage.concat("\n```");
-    message.client.channels.find(c=>c.name==='vape-naysh').sendMessage(newMessage);
+    message.client.channels.find(c=>c.name==='vape-naysh').send(newMessage);
     emos=[];
     return;
   }
@@ -129,6 +130,14 @@ client.on('message', message => {
   for (var i = 0; i<triggerlist.length; i++){
     if(message.content.toLowerCase().includes(triggerlist[i])){
        message.channel.send(triggers[triggerlist[i]]);
+    }
+  }
+  if (message.content.toLowerCase().includes("dab")){
+    const count = (str) => {
+      return ((str || '').match(dabReg) || []).length
+    }
+    if (count(message.content.toLowerCase()) >= 3){
+      message.channel.send(dab);
     }
   }
   if(message.content.toLowerCase().includes("/help")){
