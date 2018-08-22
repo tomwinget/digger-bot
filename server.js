@@ -8,7 +8,7 @@ function sleep (time) {
 }
 
 // Constants
-const dab = new Discord.RichEmbed().setImage("https://media.giphy.com/media/26uTt19akcFxRFCy4/giphy.gif");
+const dabs = ["https://media.giphy.com/media/26uTt19akcFxRFCy4/giphy.gif","https://media.giphy.com/media/3oz8xODcLLAxb8Qyju/giphy.gif","https://media.giphy.com/media/WxIBO7AsS6OJP02KRN/giphy.gif","https://media.giphy.com/media/bXvwCQglnTGKs/giphy.gif"];
 const fortnite = new Discord.RichEmbed().setImage("https://i.redd.it/lwq9doves6g11.gif");
 const jebpleaseclap = new Discord.RichEmbed().setImage("https://media.giphy.com/media/l0NwPo3VHujpJDI4w/giphy.gif");
 const trashdove = new Discord.RichEmbed().setImage("http://i.imgur.com/50wBJit.gif");
@@ -137,6 +137,7 @@ client.on('message', message => {
       return ((str || '').match(dabReg) || []).length
     }
     if (count(message.content.toLowerCase()) >= 3){
+      const dab = new Discord.RichEmbed().setImage(dabs[Math.floor(Math.random()*dabs.length)]);
       message.channel.send(dab);
     }
   }
