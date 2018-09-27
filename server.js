@@ -180,6 +180,9 @@ client.on('message', message => {
     const emojiList = message.guild.emojis.map(e=>e.toString()).join(" ");
     message.channel.send(emojiList);
   }
+  if (message.content.toLowerCase() === "peanutbutter" || message.content.toLowerCase() === "shrug"){
+          message.edit("¯\_(ツ)_/¯");
+  }
   for (var i = 0; i< emojilist.length; i++){
     if(emojilist[i].name.toLowerCase() === 'fortnite' && message.content.toLowerCase().includes('retard')){
       message.react(emojilist[i]);
