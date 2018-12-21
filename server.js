@@ -9,6 +9,7 @@ function sleep (time) {
 
 // Constants
 const dabs = ["https://media.giphy.com/media/26uTt19akcFxRFCy4/giphy.gif","https://media.giphy.com/media/3oz8xODcLLAxb8Qyju/giphy.gif","https://media.giphy.com/media/WxIBO7AsS6OJP02KRN/giphy.gif","https://media.giphy.com/media/bXvwCQglnTGKs/giphy.gif"];
+const yuhs = ["https://media.giphy.com/media/h37RZSg830CpG/giphy.gif"];
 const fortnite = new Discord.RichEmbed().setImage("https://i.redd.it/lwq9doves6g11.gif");
 const jebpleaseclap = new Discord.RichEmbed().setImage("https://media.giphy.com/media/l0NwPo3VHujpJDI4w/giphy.gif");
 const trashdove = new Discord.RichEmbed().setImage("http://i.imgur.com/50wBJit.gif");
@@ -35,6 +36,7 @@ const triggered=new Discord.RichEmbed().setImage("https://i.imgur.com/5HAvEKk.gi
 const dio=new Discord.RichEmbed().setImage("https://i.kym-cdn.com/photos/images/original/000/754/539/566.gif");
 const shook=new Discord.RichEmbed().setImage("https://media1.tenor.com/images/74615c72cdb521769a2064c11e541d22/tenor.gif?itemid=5794225")
 const bee=new Discord.RichEmbed().setImage("https://i.imgur.com/wes7iyz.gif")
+const sasuke=new Discord.RichEmbed().setImage("https://i.pinimg.com/originals/86/e5/4e/86e54ec267e965ceb731d32cb0e4492a.jpg")
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -83,14 +85,18 @@ const triggers = {
   "power":"KONO POWA",
   "society":":b:️:o2:️:cross:️:cross:️:o2:️:scorpius:️   :cross:️🅴:x::cross:",
   "bee": bee,
-  "fortnite": fortnite
+  "fortnite": fortnite,
+  "sasuke": sasuke,
+  "sauce": sasuke,
+  "nsfw": sasuke,
+  "kage bunshin no jutsu": sasuke
 }
 var prevMessage = null;
 var del = false;
 
 var prevMessage = null;
 
-var dabReg = /dab/gi, emojiReg = /<a:/gi, emos=[];
+var dabReg = /dab/gi, yuhReg = /yuh/gi, sasReg = /sasuke/gi, emojiReg = /<a:/gi, emos=[];
 
 client.on('message', message => {
   if(message.author.bot) return;
@@ -110,10 +116,12 @@ client.on('message', message => {
     newMessage = newMessage.concat("\n```");
     message.client.channels.find(c=>c.name==='vape-naysh').send(newMessage);
     emos=[];
+    console.log('Received and sent greenText request');
     return;
   }
   if (message.channel.type === 'dm' && message.content.charAt(0) != '>'){
     message.reply('l2greentextpls, you need to start with the \'>\' char');
+    console.log('l2greentext sent');
     return;
   }
   var emojilist = Array.from(message.guild.emojis.values());
@@ -122,6 +130,7 @@ client.on('message', message => {
       if(message.content.substring(1).toLowerCase().includes(emojilist[i].name.toLowerCase())){
         prevMessage.react(emojilist[i]);
         message.delete();
+        console.log('added update message');
         return;
       }
     }
@@ -130,6 +139,7 @@ client.on('message', message => {
   for (var i = 0; i<triggerlist.length; i++){
     if(message.content.toLowerCase().includes(triggerlist[i])){
        message.channel.send(triggers[triggerlist[i]]);
+       console.log('Sent trigger: '+triggerlist[i]);
     }
   }
   if (message.content.toLowerCase().includes("dab")){
@@ -139,29 +149,58 @@ client.on('message', message => {
     if (count(message.content.toLowerCase()) >= 3){
       const dab = new Discord.RichEmbed().setImage(dabs[Math.floor(Math.random()*dabs.length)]);
       message.channel.send(dab);
+      console.log('Sent triple dab');
+    }
+  }
+  if (message.content.toLowerCase().includes("yuh")){
+    const count = (str) => {
+      return ((str || '').match(yuhReg) || []).length
+    }
+    if (count(message.content.toLowerCase()) >= 3){
+      const yuh = new Discord.RichEmbed().setImage(yuhs[Math.floor(Math.random()*yuhs.length)]);
+      message.channel.send(yuh);
+      console.log('Sent triple yuh');
+    }
+  }
+  if (message.content.toLowerCase().includes("sasuke")){
+    const count = (str) => {
+      return ((str || '').match(sasReg) || []).length
+    }
+    if (count(message.content.toLowerCase()) >= 3){
+      message.channel.send(sasuke);
+      message.channel.send(sasuke);
+      message.channel.send(sasuke);
+      console.log('Sent sfw Sasuke');
     }
   }
   if(message.content.toLowerCase().includes("/help")){
     message.channel.send("Do you really need help shitposting?");
+    console.log('Sent shitposting help');
   }
   if (message.content.toLowerCase() === 'ping') {
     message.reply('pong',{tts:true});
+    console.log('Sent ping pong');
   } 
   if (message.content.toLowerCase() === 'what is my avatar') {
     // Send the user's avatar URL
     message.reply(message.author.avatarURL);
+    console.log('Sent author avatar');
   }
   if (message.content.toLowerCase().includes('waste') && message.content.toLowerCase().includes('time')){
     message.channel.send(calvintime);
+    console.log('Sent waste of time');
   }
   if (message.content.toLowerCase().includes('cisco') && !message.content.toLowerCase().includes('.com')){
     message.channel.send(".:|:.:|:. Chuck Co .:|:.:|:.");
+    console.log('Sent chuck co');
   }
   if (message.content.toLowerCase().includes('steam') && message.content.toLowerCase().includes('ham')){
     message.channel.send(steamedham);
+    console.log('Sent steamedham');
   }
   if (message.content.toLowerCase().includes('allahu') && !message.content.toLowerCase().includes('akbar')){
     message.channel.send("akbar");
+    console.log('Sent akbar');
   }
   if (message.content.toLowerCase().includes('well') && (message.content.toLowerCase().includes('start coming') || message.content.toLowerCase().includes('starts coming'))){
     var i;
@@ -169,32 +208,40 @@ client.on('message', message => {
       message.channel.send("and they don't stop coming");
       sleep(1000);
     }
+    console.log('Sent dont stop coming');
   }
   if (message.content.toLowerCase().includes('please') && message.content.toLowerCase().includes('clap')){
     message.channel.send(jebpleaseclap);
+    console.log('Sent jebus clap');
   }
   if (message.content.toLowerCase().includes('bless')){
     message.react("🙌");
+    console.log('Sent bless react');
   }
   if (message.content.toLowerCase() === "listemojis") {
     const emojiList = message.guild.emojis.map(e=>e.toString()).join(" ");
     message.channel.send(emojiList);
+    console.log('Sent emojilist');
   }
   if (message.content.toLowerCase() === "peanutbutter" || message.content.toLowerCase() === "shrug"){
           message.channel.send("¯\\\_(ツ)\_/¯");
+      console.log('Sent Aaron');
   }
   if (message.content.toLowerCase().includes ('regex') && message.content.toLowerCase().includes('html')){
     message.channel.send("You can't parse [X]HTML with regex. Because HTML can't be parsed by regex. Regex is not a tool that can be used to correctly parse HTML. As I have answered in HTML-and-regex questions here so many times before, the use of regex will not allow you to consume HTML. Regular expressions are a tool that is insufficiently sophisticated to understand the constructs employed by HTML. HTML is not a regular language and hence cannot be parsed by regular expressions. Regex queries are not equipped to break down HTML into its meaningful parts. so many times but it is not getting to me. Even enhanced irregular regular expressions as used by Perl are not up to the task of parsing HTML. You will never make me crack. HTML is a language of sufficient complexity that it cannot be parsed by regular expressions. Even Jon Skeet cannot parse HTML using regular expressions. Every time you attempt to parse HTML with regular expressions, the unholy child weeps the blood of virgins, and Russian hackers pwn your webapp. Parsing HTML with regex summons tainted souls into the realm of the living. HTML and regex go together like love, marriage, and ritual infanticide. The <center> cannot hold it is too late. The force of regex and HTML together in the same conceptual space will destroy your mind like so much watery putty. If you parse HTML with regex you are giving in to Them and their blasphemous ways which doom us all to inhuman toil for the One whose Name cannot be expressed in the Basic Multilingual Plane, he comes.");
       message.channel.send("HTML-plus-regexp will liquify the n​erves of the sentient whilst you observe, your psyche withering in the onslaught of horror. Rege̿̔̉x-based HTML parsers are the cancer that is killing StackOverflow it is too late it is too late we cannot be saved the trangession of a chi͡ld ensures regex will consume all living tissue (except for HTML which it cannot, as previously prophesied) dear lord help us how can anyone survive this scourge using regex to parse HTML has doomed humanity to an eternity of dread torture and security holes using regex as a tool to process HTML establishes a breach between this world and the dread realm of c͒ͪo͛ͫrrupt entities (like SGML entities, but more corrupt) a mere glimpse of the world of reg​ex parsers for HTML will ins​tantly transport a programmer's consciousness into a world of ceaseless screaming, he comes, the pestilent slithy regex-infection wil​l devour your HT​ML parser, application and existence for all time like Visual Basic only worse he comes he comes do not fi​ght he com̡e̶s, ̕h̵i​s un̨ho͞ly radiańcé destro҉ying all enli̍̈́̂̈́ghtenment, HTML tags lea͠ki̧n͘g fr̶ǫm ̡yo​͟ur eye͢s̸ ̛l̕ik͏e liq​uid pain, the song of re̸gular exp​ression parsing will exti​nguish the voices of mor​tal man from the sp​here I can see it can you see ̲͚̖͔̙î̩́t̲͎̩̱͔́̋̀ it is beautiful t​he final snuffing of the lie​s of Man ALL IS LOŚ͖̩͇̗̪̏̈́T ALL I​S LOST the pon̷y he comes he c̶̮omes he comes the ich​or permeates all MY FACE MY FACE ᵒh god no NO NOO̼O​O NΘ stop the an​*̶͑̾̾​̅ͫ͏̙̤g͇̫͛͆̾ͫ̑͆l͖͉̗̩̳̟̍ͫͥͨe̠̅s ͎a̧͈͖r̽̾̈́͒͑e n​ot rè̑ͧ̌aͨl̘̝̙̃ͤ͂̾̆ ZA̡͊͠͝LGΌ ISͮ̂҉̯͈͕̹̘̱ TO͇̹̺ͅƝ̴ȳ̳ TH̘Ë͖́̉ ͠P̯͍̭O̚​N̐Y̡ H̸̡̪̯ͨ͊̽̅̾̎Ȩ̬̩̾͛ͪ̈́̀́͘ ̶̧̨̱̹̭̯ͧ̾ͬC̷̙̲̝͖ͭ̏ͥͮ͟Oͮ͏̮̪̝͍M̲̖͊̒ͪͩͬ̚̚͜Ȇ̴̟̟͙̞ͩ͌͝S̨̥̫͎̭ͯ̿̔̀ͅ");
       sleep(1000);
       message.channel.send("Have you tried using an XML parser instead?");
+      console.log('Sent regex html copypasta');
   }
   for (var i = 0; i< emojilist.length; i++){
     if(emojilist[i].name.toLowerCase() === 'fortnite' && message.content.toLowerCase().includes('retard')){
       message.react(emojilist[i]);
+      console.log('Sent forknife react');
     }
     if(message.content.toLowerCase().includes(emojilist[i].name.toLowerCase())){
       message.react(emojilist[i]);
+      console.log('Sent emoji react: '+emojilist[i].name.toLowerCase());
     }
   } 
   prevMessage = message;
