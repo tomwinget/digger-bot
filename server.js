@@ -28,14 +28,14 @@ const backdoor=new Discord.RichEmbed().setImage("https://i.imgur.com/bgwbje5.gif
 backdoor.setColor([255,255,255]);
 const lolHarold=new Discord.RichEmbed().setImage("https://i.imgur.com/Yf8JBm5.gif");
 const hueHueHue=new Discord.RichEmbed().setImage("https://i.imgur.com/rSZf8E7.gif");
-const never=new Discord.RichEmbed().setImage("https://i.imgur.com/6gf1TXj.gif");
+//const never=new Discord.RichEmbed().setImage("https://i.imgur.com/6gf1TXj.gif");
 const developers=new Discord.RichEmbed().setImage("https://thumbs.gfycat.com/CheerfulAbandonedAmethystsunbird-max-1mb.gif");
 const party=new Discord.RichEmbed().setImage("https://i.imgur.com/mP8ZRTX.gif");
 const normies=new Discord.RichEmbed().setImage("https://i.imgur.com/8bdx5RF.gif");
 const triggered=new Discord.RichEmbed().setImage("https://i.imgur.com/5HAvEKk.gif");
 const dio=new Discord.RichEmbed().setImage("https://i.kym-cdn.com/photos/images/original/000/754/539/566.gif");
 const shook=new Discord.RichEmbed().setImage("https://media1.tenor.com/images/74615c72cdb521769a2064c11e541d22/tenor.gif?itemid=5794225")
-const bee=new Discord.RichEmbed().setImage("https://i.imgur.com/wes7iyz.gif")
+//const bee=new Discord.RichEmbed().setImage("https://i.imgur.com/wes7iyz.gif")
 const sasuke=new Discord.RichEmbed().setImage("https://i.pinimg.com/originals/86/e5/4e/86e54ec267e965ceb731d32cb0e4492a.jpg")
 
 client.on('ready', () => {
@@ -74,7 +74,7 @@ const triggers = {
   "triggered":"DIGGER-ED!",
   "hyperlul":lolHarold,
   "hue":hueHueHue,
-  "never":never,
+  //"never":never,
   "logs":"The Lincoln logs look on the Lincoln logs unlock the Lincoln logs in laws suck my linking logs.",
   "developers":developers,
   "party":party,
@@ -84,7 +84,7 @@ const triggers = {
   "sono chi no sadame":"JOOOOOOOOO JO",
   "power":"KONO POWA",
   "society":":b:️:o2:️:cross:️:cross:️:o2:️:scorpius:️   :cross:️🅴:x::cross:",
-  "bee": bee,
+  //"bee": bee,
   "fortnite": fortnite,
   "sasuke": sasuke,
   "sauce": sasuke,
