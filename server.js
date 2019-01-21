@@ -37,7 +37,7 @@ const dio=new Discord.RichEmbed().setImage("https://i.kym-cdn.com/photos/images/
 const shook=new Discord.RichEmbed().setImage("https://media1.tenor.com/images/74615c72cdb521769a2064c11e541d22/tenor.gif?itemid=5794225")
 //const bee=new Discord.RichEmbed().setImage("https://i.imgur.com/wes7iyz.gif")
 const sasuke=new Discord.RichEmbed().setImage("https://i.pinimg.com/originals/86/e5/4e/86e54ec267e965ceb731d32cb0e4492a.jpg")
-
+const thanksObama=new Discord.RichEmbed().setImage("https://i.imgur.com/mTSxGgU.gif")
 client.on('ready', () => {
   console.log('I am ready!');
 });
@@ -89,7 +89,8 @@ const triggers = {
   "sasuke": sasuke,
   "sauce": sasuke,
   "nsfw": sasuke,
-  "kage bunshin no jutsu": sasuke
+  "kage bunshin no jutsu": sasuke,
+  "thanks obama": thanksObama,
 }
 var prevMessage = null;
 var del = false;
