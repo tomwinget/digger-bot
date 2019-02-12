@@ -126,13 +126,15 @@ client.on('message', message => {
     return;
   }
   var emojilist = Array.from(message.guild.emojis.values());
-  if (message.content.charAt(0) === '^') {
-    for (var i = 0; i < emojilist.length; i++){
-      if(message.content.substring(1).toLowerCase().includes(emojilist[i].name.toLowerCase())){
-        prevMessage.react(emojilist[i]);
-        message.delete();
-        console.log('added update message');
-        return;
+  if (prevMessage != null) {
+    if (message.content.charAt(0) === '^') {
+      for (var i = 0; i < emojilist.length; i++){
+        if(message.content.substring(1).toLowerCase().includes(emojilist[i].name.toLowerCase())){
+          prevMessage.react(emojilist[i]);
+          message.delete();
+          console.log('added update message');
+          return;
+        }
       }
     }
   }
