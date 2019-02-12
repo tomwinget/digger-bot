@@ -95,8 +95,6 @@ const triggers = {
 var prevMessage = null;
 var del = false;
 
-var prevMessage = null;
-
 var dabReg = /dab/gi, yuhReg = /yuh/gi, sasReg = /sasuke/gi, emojiReg = /<a:/gi, emos=[];
 
 client.on('message', message => {
