@@ -9,6 +9,7 @@ function sleep (time) {
 
 // Constants
 const dabs = ["https://media.giphy.com/media/26uTt19akcFxRFCy4/giphy.gif","https://media.giphy.com/media/3oz8xODcLLAxb8Qyju/giphy.gif","https://media.giphy.com/media/WxIBO7AsS6OJP02KRN/giphy.gif","https://media.giphy.com/media/bXvwCQglnTGKs/giphy.gif"];
+const sanics = ["https://media.giphy.com/media/fsct34K9ReQJYhF1XU/200w_d.gif","https://media.giphy.com/media/7vASwLecKrkuGathAO/200w_d.gif","https://media.giphy.com/media/1nOLb8el2ZrctxTX8T/200w_d.gif","https://media.giphy.com/media/9x1bdKdfOuubeAp18g/200w_d.gif","https://media.giphy.com/media/enuc3JEbs7tfLMZbEH/200w_d.gif","https://media.giphy.com/media/dIBCiiLC09OpCWE139/200w_d.gif"];
 const yuhs = ["https://media.giphy.com/media/h37RZSg830CpG/giphy.gif"];
 const fortnite = new Discord.RichEmbed().setImage("https://i.redd.it/lwq9doves6g11.gif");
 const jebpleaseclap = new Discord.RichEmbed().setImage("https://media.giphy.com/media/l0NwPo3VHujpJDI4w/giphy.gif");
@@ -152,6 +153,11 @@ client.on('message', message => {
       message.channel.send(dab);
       console.log('Sent triple dab');
     }
+  }
+  if (message.content.toLowerCase().includes("sanic")){
+    const sanic = new Discord.RichEmbed().setImage(sanics[Math.floor(Math.random()*sanics.length)]);
+    message.channel.send(sanic);
+    console.log('Sent random sanic');
   }
   if (message.content.toLowerCase().includes("yuh")){
     const count = (str) => {
