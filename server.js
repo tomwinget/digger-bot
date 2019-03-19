@@ -139,7 +139,7 @@ client.on('message', message => {
   }
   var triggerlist = Object.keys(triggers);
   for (var i = 0; i<triggerlist.length; i++){
-    var pattern = new RegExp("[^a-z]" + trigger + "[^a-z]", "i");
+    var pattern = new RegExp("[^a-z]" + triggerlist[i] + "[^a-z]", "i");
     var triggered = message.content.toLowerCase().match(pattern);
     if(triggered){
        message.channel.send(triggers[triggerlist[i]]);
