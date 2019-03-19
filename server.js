@@ -81,7 +81,7 @@ const triggers = {
   "party":party,
   "normies":normies,
   "shook":shook,
-  " dio ":dio,
+  "dio":dio,
   "sono chi no sadame":"JOOOOOOOOO JO",
   "power":"KONO POWA",
   "society":":b:️:o2:️:cross:️:cross:️:o2:️:scorpius:️   :cross:️🅴:x::cross:",
@@ -139,7 +139,9 @@ client.on('message', message => {
   }
   var triggerlist = Object.keys(triggers);
   for (var i = 0; i<triggerlist.length; i++){
-    if(message.content.toLowerCase().includes(triggerlist[i])){
+    var pattern = new RegExp("[^a-z]" + trigger + "[^a-z]", "i");
+    var triggered = message.content.toLowerCase().match(pattern);
+    if(triggered){
        message.channel.send(triggers[triggerlist[i]]);
        console.log('Sent trigger: '+triggerlist[i]);
     }
