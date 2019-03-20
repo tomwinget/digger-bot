@@ -109,6 +109,7 @@ var del = false;
 
 var dabReg = /dab/gi, yuhReg = /yuh/gi, sasReg = /sasuke/gi, emojiReg = /<a:/gi, emos=[];
 
+
 client.on('message', message => {
   if(message.author.bot) return;
   if (message.channel.type === 'dm' && message.content.charAt(0) === '>') {
@@ -134,19 +135,6 @@ client.on('message', message => {
     message.reply('l2greentextpls, you need to start with the \'>\' char');
     console.log('l2greentext sent');
     return;
-  }
-  var emojilist = Array.from(message.guild.emojis.values());
-  if (prevMessage != null) {
-    if (message.content.charAt(0) === '^') {
-      for (var i = 0; i < emojilist.length; i++){
-        if(message.content.substring(1).toLowerCase().includes(emojilist[i].name.toLowerCase())){
-          prevMessage.react(emojilist[i]);
-          message.delete();
-          console.log('added update message');
-          return;
-        }
-      }
-    }
   }
   var formattedText = " " + message.content.toLowerCase() + " ";
   for (var i = 0; i < triggerlist.length; i++){
@@ -256,14 +244,47 @@ client.on('message', message => {
       message.channel.send("Have you tried using an XML parser instead?");
       console.log('Sent regex html copypasta');
   }
+
+  //Build set of emojis per message, until we have a way to get guild without a message this will be done per message
+  var emojilist = Array.from(message.guild.emojis.values());
+  for(var i = 0; i< emojilist.length; i++){
+      var key = emojilist[i].name.toLowerCase();
+      var value = emojilist[i];
+      var pattern = new RegExp("[^a-z]" + key + "[^a-z]", "i");
+      emojilist[i] = [pattern, value];
+  }
+
+  //Check if we can react to the previous message. This needs to be refactored so that message channels are the same, currently it will react to the most recent message in any channel
+  if (prevMessage != null) {
+    if (message.content.charAt(0) === '^') {
+      //String the leading ^ character
+      var formattedMessage = " " + message.content.substring(1).toLowerCase() + " ";
+      for (var i = 0; i < emojilist.length; i++){
+        var pattern = emojilist[i][0];
+        var emoji = emojilist[i][1];
+        var react = formattedMessage.match(pattern);
+        if(react){
+          prevMessage.react(emoji);
+          message.delete();
+          console.log('added update message');
+          return;
+        }
+      }
+    }
+  }
+
+  //If we reach here, for all the emojis in the guild, check if pattern matches and react
   for (var i = 0; i< emojilist.length; i++){
-    if(emojilist[i].name.toLowerCase() === 'fortnite' && message.content.toLowerCase().includes('retard')){
-      message.react(emojilist[i]);
+    var pattern = emojilist[i][0];
+    var emoji = emojilist[i][1];
+    var react = formattedText.match(pattern);
+    if(emoji.name === 'fortnite' && message.content.toLowerCase().includes('retard')){
+      message.react(emoji);
       console.log('Sent forknife react');
     }
-    if(message.content.toLowerCase().includes(emojilist[i].name.toLowerCase())){
-      message.react(emojilist[i]);
-      console.log('Sent emoji react: '+emojilist[i].name.toLowerCase());
+    if(react){
+      message.react(emoji);
+      console.log('Sent emoji react: '+emoji.name);
     }
   } 
   prevMessage = message;
