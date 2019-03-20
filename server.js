@@ -43,7 +43,7 @@ client.on('ready', () => {
   console.log('I am ready!');
 });
 
-const triggers = {
+var triggers = {
   "420":"حشش",
   "blaze it":"حشش",
   "thick":"Awesome pics. Great size. Look thick. Solid. Tight. Keep us all posted on your continued progress with any new progress pics or vid clips. Show us what you got man. Wanna see how freakin' huge, solid, thick and tight you can get. Thanks for the motivation.",
@@ -81,7 +81,7 @@ const triggers = {
   "party":party,
   "normies":normies,
   "shook":shook,
-  " dio ":dio,
+  "dio":dio,
   "sono chi no sadame":"JOOOOOOOOO JO",
   "power":"KONO POWA",
   "society":":b:️:o2:️:cross:️:cross:️:o2:️:scorpius:️   :cross:️🅴:x::cross:",
@@ -93,6 +93,17 @@ const triggers = {
   "kage bunshin no jutsu": sasuke,
   "thanks obama": thanksObama,
 }
+
+// Change each value of `trigger` to be an array containing exactly two objects:
+// (1) its RegExp and (2) the original value in that order.
+var triggerlist = Object.keys(triggers);
+for(var i = 0; i < triggerlist.length; i++){
+  var key = triggerlist[i];
+  var value = triggers[key];
+  var pattern = new RegExp("[^a-z]" + key + "[^a-z]", "i");
+  triggers[key] = [pattern, value];
+}
+
 var prevMessage = null;
 var del = false;
 
@@ -137,11 +148,15 @@ client.on('message', message => {
       }
     }
   }
-  var triggerlist = Object.keys(triggers);
-  for (var i = 0; i<triggerlist.length; i++){
-    if(message.content.toLowerCase().includes(triggerlist[i])){
-       message.channel.send(triggers[triggerlist[i]]);
-       console.log('Sent trigger: '+triggerlist[i]);
+  var formattedText = " " + message.content.toLowerCase() + " ";
+  for (var i = 0; i < triggerlist.length; i++){
+    var key = triggerlist[i];
+    var pattern = triggers[key][0];
+    var media = triggers[key][1];
+    var triggered = formattedText.match(pattern);
+    if(triggered){
+       message.channel.send(media);
+       console.log('Sent trigger: ' + key);
     }
   }
   if (message.content.toLowerCase().includes("dab")){
