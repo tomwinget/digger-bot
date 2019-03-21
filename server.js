@@ -8,7 +8,7 @@ function sleep (time) {
 }
 
 // Constants
-const dabs = ["https://media.giphy.com/media/26uTt19akcFxRFCy4/giphy.gif","https://media.giphy.com/media/3oz8xODcLLAxb8Qyju/giphy.gif","https://media.giphy.com/media/WxIBO7AsS6OJP02KRN/giphy.gif","https://media.giphy.com/media/bXvwCQglnTGKs/giphy.gif","https://media0.giphy.com/media/nygYqzhe3HB6w/giphy.gif?cid=3640f6095c91539c6a32307773c710a5","https://media1.giphy.com/media/l46CySTsO9JqWL8di/giphy.gif?cid=3640f6095c91539c6a32307773c710a5"];
+const dabs = ["https://media.giphy.com/media/26uTt19akcFxRFCy4/giphy.gif","https://media.giphy.com/media/3oz8xODcLLAxb8Qyju/giphy.gif","https://media.giphy.com/media/WxIBO7AsS6OJP02KRN/giphy.gif","https://media.giphy.com/media/bXvwCQglnTGKs/giphy.gif","https://media0.giphy.com/media/nygYqzhe3HB6w/giphy.gif?cid=3640f6095c91539c6a32307773c710a5","https://media1.giphy.com/media/l46CySTsO9JqWL8di/giphy.gif?cid=3640f6095c91539c6a32307773c710a5","https://media.giphy.com/media/FsUrNVw5djj3DP7vuh/200w_d.gif"];
 const sanics = ["https://media.giphy.com/media/fsct34K9ReQJYhF1XU/200w_d.gif","https://media.giphy.com/media/7vASwLecKrkuGathAO/200w_d.gif","https://media.giphy.com/media/1nOLb8el2ZrctxTX8T/200w_d.gif","https://media.giphy.com/media/9x1bdKdfOuubeAp18g/200w_d.gif","https://media.giphy.com/media/enuc3JEbs7tfLMZbEH/200w_d.gif","https://media.giphy.com/media/dIBCiiLC09OpCWE139/200w_d.gif"];
 const yuhs = ["https://media.giphy.com/media/h37RZSg830CpG/giphy.gif"];
 const fortnite = new Discord.RichEmbed().setImage("https://i.redd.it/lwq9doves6g11.gif");
