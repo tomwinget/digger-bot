@@ -40,7 +40,7 @@ const shook=new Discord.RichEmbed().setImage("https://media1.tenor.com/images/74
 const sasuke=new Discord.RichEmbed().setImage("https://i.pinimg.com/originals/86/e5/4e/86e54ec267e965ceb731d32cb0e4492a.jpg")
 const thanksObama=new Discord.RichEmbed().setImage("https://i.imgur.com/mTSxGgU.gif")
 const chuckSploosh=new Discord.RichEmbed().setImage("https://i.imgur.com/LArOCP9.gif")
-const GOTTEM=new Discord.RichEmbed().setImage("https://imgur.com/SLF34pF");
+const GOTTEM=new Discord.RichEmbed().setImage("https://i.postimg.cc/qMfhPgSR/dadem.jpg");
 client.on('ready', () => {
   console.log('I am ready!');
 });
