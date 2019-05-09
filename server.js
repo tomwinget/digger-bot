@@ -40,6 +40,7 @@ const shook=new Discord.RichEmbed().setImage("https://media1.tenor.com/images/74
 const sasuke=new Discord.RichEmbed().setImage("https://i.pinimg.com/originals/86/e5/4e/86e54ec267e965ceb731d32cb0e4492a.jpg")
 const thanksObama=new Discord.RichEmbed().setImage("https://i.imgur.com/mTSxGgU.gif")
 const chuckSploosh=new Discord.RichEmbed().setImage("https://i.imgur.com/LArOCP9.gif")
+const GOTTEM=new Discord.RichEmbed().setImage("https://imgur.com/SLF34pF");
 client.on('ready', () => {
   console.log('I am ready!');
 });
@@ -93,7 +94,8 @@ var triggers = {
   "nsfw": sasuke,
   "kage bunshin no jutsu": sasuke,
   "thanks obama": thanksObama,
-  "cisco & stock (order does not matter)": chuckSploosh
+  "cisco & stock (order does not matter)": chuckSploosh,
+  "GOTTEM": GOTTEM
 }
 
 // Change each value of `trigger` to be an array containing exactly two objects:
