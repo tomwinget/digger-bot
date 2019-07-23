@@ -1,7 +1,7 @@
 const CONFIG = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = process.env.token;
+const token = process.env.diggerToken;
 
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
@@ -41,6 +41,9 @@ const sasuke=new Discord.RichEmbed().setImage("https://i.pinimg.com/originals/86
 const thanksObama=new Discord.RichEmbed().setImage("https://i.imgur.com/mTSxGgU.gif")
 const chuckSploosh=new Discord.RichEmbed().setImage("https://i.imgur.com/LArOCP9.gif")
 const GOTTEM=new Discord.RichEmbed().setImage("https://i.postimg.cc/qMfhPgSR/dadem.jpg");
+const troo=new Discord.RichEmbed().setImage("https://imgur.com/b0QWNlq.gif");
+const yikes=new Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachments/436581339119222785/600466883061350402/image0.jpg");
+
 client.on('ready', () => {
   console.log('I am ready!');
 });
@@ -95,7 +98,12 @@ var triggers = {
   "kage bunshin no jutsu": sasuke,
   "thanks obama": thanksObama,
   "cisco & stock (order does not matter)": chuckSploosh,
-  "GOTTEM": GOTTEM
+  "GOTTEM": GOTTEM,
+  "aliens": "Tips and tricks for area 51 raiders (PLEASE SHARE THIS WITH OTHER RAIDERS)\n\nIf possible, get yourself some body armour (you don't want to die)\n\nGet yourself some supplies: a map, wire cutters, medkits, food, lot of water (it's a fucking desert) and monster energy drinks (for all the Kyle's) and a gas mask or swimming goggles (against tear gas)\n\nAnd courage, lots and lots of courage\n\nStay strong",
+  "troo": troo,
+  "yikes":yikes,
+  "coding": "no pauce, just type"
+
 }
 
 // Change each value of `trigger` to be an array containing exactly two objects:
