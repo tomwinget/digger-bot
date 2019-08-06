@@ -43,6 +43,7 @@ const chuckSploosh=new Discord.RichEmbed().setImage("https://i.imgur.com/LArOCP9
 const GOTTEM=new Discord.RichEmbed().setImage("https://i.postimg.cc/qMfhPgSR/dadem.jpg");
 const troo=new Discord.RichEmbed().setImage("https://imgur.com/b0QWNlq.gif");
 const yikes=new Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachments/436581339119222785/600466883061350402/image0.jpg");
+const vegan=new Discord.RichEmbed().setImage("https://www.greatveganathletes.com/wp-content/uploads/2016/07/Torre-Washington-Fruit_mini-777x935.jpg");
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -102,7 +103,9 @@ var triggers = {
   "aliens": "Tips and tricks for area 51 raiders (PLEASE SHARE THIS WITH OTHER RAIDERS)\n\nIf possible, get yourself some body armour (you don't want to die)\n\nGet yourself some supplies: a map, wire cutters, medkits, food, lot of water (it's a fucking desert) and monster energy drinks (for all the Kyle's) and a gas mask or swimming goggles (against tear gas)\n\nAnd courage, lots and lots of courage\n\nStay strong",
   "troo": troo,
   "yikes":yikes,
-  "coding": "no pauce, just type"
+  "coding": "no pauce, just type",
+  "oppressed": "What's even more sickening are those who say us gamers aren't oppressed. They say that the camps weren't actually all that bad, and that we were allowed movie nights and even given our own video game console. Trying to make the Nazis out as good guys. What they don't tell you is the only movies we were allowed to watch were Tyler Perry movies, and the only game system we were given was a VirtualBoy. People need to read the history books.",
+  "vegan":vegan
 
 }
 
