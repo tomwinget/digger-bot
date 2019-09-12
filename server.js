@@ -313,6 +313,10 @@ client.on('message', message => {
       message.react(emoji);
       console.log('Sent forknife react');
     }
+    if(emoji.name === 'trumpkiss' && message.content.toLowerCase().includes('papa kumquat')){
+      message.react(emoji);
+      console.log('Sent trumpkiss kumquat react');
+    }
     if(react){
       message.react(emoji);
       console.log('Sent emoji react: '+emoji.name);
