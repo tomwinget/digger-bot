@@ -45,7 +45,9 @@ const troo=new Discord.RichEmbed().setImage("https://imgur.com/b0QWNlq.gif");
 const yikes=new Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachments/436581339119222785/600466883061350402/image0.jpg");
 const vegan=new Discord.RichEmbed().setImage("https://www.greatveganathletes.com/wp-content/uploads/2016/07/Torre-Washington-Fruit_mini-777x935.jpg");
 const cuck=new Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachments/436581339119222785/608778096300130414/had-a-vasectomy-yesterday-and-when-i-woke-up-my-43170650.png")
-const bathwater=new Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachments/441701175025467404/610960307606650920/bath_water_cycle.png")
+const bathwater=new Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachments/441701175025467404/610960307606650920/bath_water_cycle.png");
+const dance = new Discord.RichEmbed().setImage("https://media1.tenor.com/images/5fa45ff67f6f2e0e81e07458b29ef079/tenor.gif?itemid=11968618");
+const bruhMoment = new Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachments/436581339119222785/629020848287645698/4c5.png");
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -110,7 +112,9 @@ var triggers = {
   "vegan":vegan,
   "cuck":cuck,
   "nintendo switch":"you too can get a switch from your wife's BF if you follow these simple steps:\n\n1. Get a wife\n\n2. Make sure your wife has tinder and gets a boyfriend who makes decent income but also has a smaller penis than you\n\n3. Get a vasectomy\n\n4. SMASH BROS\n\n -- @420_daddy_fever",
-  "bath":bathwater
+  "bath":bathwater,
+  "dance":dance,
+  "bruh.*(moment)+":bruhMoment
 
 }
 
