@@ -8,8 +8,8 @@ function sleep (time) {
 }
 
 // Constants
-const dabs = ["https://media.giphy.com/media/26uTt19akcFxRFCy4/giphy.gif","https://media.giphy.com/media/3oz8xODcLLAxb8Qyju/giphy.gif","https://media.giphy.com/media/WxIBO7AsS6OJP02KRN/giphy.gif","https://media.giphy.com/media/bXvwCQglnTGKs/giphy.gif","https://media0.giphy.com/media/nygYqzhe3HB6w/giphy.gif?cid=3640f6095c91539c6a32307773c710a5","https://media1.giphy.com/media/l46CySTsO9JqWL8di/giphy.gif?cid=3640f6095c91539c6a32307773c710a5","https://media.giphy.com/media/FsUrNVw5djj3DP7vuh/200w_d.gif","https://media.tenor.com/images/40b5338a60e4a044f8905984c49f2967/tenor.gif"];
-const sanics = ["https://media.giphy.com/media/fsct34K9ReQJYhF1XU/200w_d.gif","https://media.giphy.com/media/7vASwLecKrkuGathAO/200w_d.gif","https://media.giphy.com/media/1nOLb8el2ZrctxTX8T/200w_d.gif","https://media.giphy.com/media/9x1bdKdfOuubeAp18g/200w_d.gif","https://media.giphy.com/media/enuc3JEbs7tfLMZbEH/200w_d.gif","https://media.giphy.com/media/dIBCiiLC09OpCWE139/200w_d.gif"];
+const dabs = ["https://media.giphy.com/media/26uTt19akcFxRFCy4/giphy.gif","https://media.giphy.com/media/3oz8xODcLLAxb8Qyju/giphy.gif","https://media.giphy.com/media/WxIBO7AsS6OJP02KRN/giphy.gif","https://media.giphy.com/media/bXvwCQglnTGKs/giphy.gif","https://media0.giphy.com/media/nygYqzhe3HB6w/giphy.gif?cid=3640f6095c91539c6a32307773c710a5","https://media1.giphy.com/media/l46CySTsO9JqWL8di/giphy.gif?cid=3640f6095c91539c6a32307773c710a5","https://media.giphy.com/media/FsUrNVw5djj3DP7vuh/giphy.gif","https://media.tenor.com/images/40b5338a60e4a044f8905984c49f2967/tenor.gif"];
+const sanics = ["https://media.giphy.com/media/yXVO50FJIJMSQ/200w_d.gif","http://giphygifs.s3.amazonaws.com/media/S18kGlKwjxNp6/200w_d.gif","https://media.giphy.com/media/olrl89TCYdFew/200w_d.gif","https://media.giphy.com/media/yBgwe4ftOtvlm/200w_d.gif","https://media.giphy.com/media/FzuiifgDBL3Lq/200w_d.gif","https://media.giphy.com/media/6Se9YaWR4zqzm/200w_d.gif","https://media.giphy.com/media/14wX0gs76QxUsw/200w_d.gif","http://giphygifs.s3.amazonaws.com/media/mE0M2TVys8k6Y/200w_d.gif"];
 const yuhs = ["https://media.giphy.com/media/h37RZSg830CpG/giphy.gif"];
 const fortnite = new Discord.RichEmbed().setImage("https://i.redd.it/lwq9doves6g11.gif");
 const jebpleaseclap = new Discord.RichEmbed().setImage("https://media.giphy.com/media/l0NwPo3VHujpJDI4w/giphy.gif");
@@ -77,7 +77,7 @@ var triggers = {
   "good bot":"fuck you!",
   "triggered":"DIGGER-ED!",
   "hyperlul":lolHarold,
-  "hue":hueHueHue,
+  "(hue|huehuehue)":hueHueHue,
   //"never":never,
   "logs":"The Lincoln logs look on the Lincoln logs unlock the Lincoln logs in laws suck my linking logs.",
   "developers":developers,
@@ -105,7 +105,8 @@ var triggers = {
   "nintendo switch":"you too can get a switch from your wife's BF if you follow these simple steps:\n\n1. Get a wife\n\n2. Make sure your wife has tinder and gets a boyfriend who makes decent income but also has a smaller penis than you\n\n3. Get a vasectomy\n\n4. SMASH BROS\n\n -- @420_daddy_fever",
   "bath":bathwater,
   "dance":dance,
-  "bruh.*(moment)+":bruhMoment
+  "bruh.*(moment)+":bruhMoment,
+  "time": "What a time!"
 
 }
 
