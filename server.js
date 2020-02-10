@@ -48,6 +48,9 @@ const cuck=new Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachme
 const bathwater=new Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachments/441701175025467404/610960307606650920/bath_water_cycle.png");
 const dance = new Discord.RichEmbed().setImage("https://media1.tenor.com/images/5fa45ff67f6f2e0e81e07458b29ef079/tenor.gif?itemid=11968618");
 const bruhMoment = new Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachments/436581339119222785/629020848287645698/4c5.png");
+const nono = new Discord.RichEmbed().setImage("https://media.giphy.com/media/jncYBUAyu4r8Jv7Z1f/giphy.gif")
+const jfc = new
+    Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachments/441701175025467404/671810944803930114/image0.jpg");
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -106,8 +109,9 @@ var triggers = {
   "bath":bathwater,
   "dance":dance,
   "bruh.*(moment)+":bruhMoment,
-  "time": "What a time!"
-
+  "time": "What a time!",
+  "no(no)+": nono,
+  "jfc|Jesus": jfc
 }
 
 // Change each value of `trigger` to be an array containing exactly two objects:
@@ -120,7 +124,6 @@ for(var i = 0; i < triggerlist.length; i++){
   triggers[key] = [pattern, value];
 }
 
-var prevMessage = null;
 var del = false;
 
 var dabReg = /dab/gi, yuhReg = /yuh/gi, sasReg = /sasuke/gi, emojiReg = /<a:/gi, emos=[];
@@ -281,21 +284,19 @@ client.on('message', message => {
       emojilist[i] = [pattern, value];
   }
 
-  //Check if we can react to the previous message. This needs to be refactored so that message channels are the same, currently it will react to the most recent message in any channel
-  if (prevMessage != null) {
-    if (message.content.charAt(0) === '^') {
-      //String the leading ^ character
-      var formattedMessage = " " + message.content.substring(1).toLowerCase() + " ";
-      for (var i = 0; i < emojilist.length; i++){
-        var pattern = emojilist[i][0];
-        var emoji = emojilist[i][1];
-        var react = formattedMessage.match(pattern);
-        if(react){
-          prevMessage.react(emoji);
-          message.delete();
-          console.log('added update message');
-          return;
-        }
+  if (message.content.charAt(0) === '^') {
+    //String the leading ^ character
+    var formattedMessage = " " + message.content.substring(1).toLowerCase() + " ";
+    for (var i = 0; i < emojilist.length; i++){
+      var pattern = emojilist[i][0];
+      var emoji = emojilist[i][1];
+      var react = formattedMessage.match(pattern);
+      if(react){
+        message.channel.fetchMessages({limit: 1,before:
+            message.id}).then(messages => messages.first().react(emoji));
+        message.delete();
+        console.log('added update message');
+        return;
       }
     }
   }
