@@ -8,7 +8,7 @@ function sleep (time) {
 }
 
 // Constants
-const dabs = ["https://i.imgur.com/Kr6f5Vz.gif", "https://media.giphy.com/media/26uTt19akcFxRFCy4/giphy.gif","https://media.giphy.com/media/3oz8xODcLLAxb8Qyju/giphy.gif","https://media.giphy.com/media/WxIBO7AsS6OJP02KRN/giphy.gif","https://media.giphy.com/media/bXvwCQglnTGKs/giphy.gif","https://media0.giphy.com/media/nygYqzhe3HB6w/giphy.gif?cid=3640f6095c91539c6a32307773c710a5","https://media1.giphy.com/media/l46CySTsO9JqWL8di/giphy.gif?cid=3640f6095c91539c6a32307773c710a5","https://media.giphy.com/media/FsUrNVw5djj3DP7vuh/giphy.gif","https://media.tenor.com/images/40b5338a60e4a044f8905984c49f2967/tenor.gif"];
+const dabs = ["https://i.imgur.com/Kr6f5Vz.gif", "https://media.giphy.com/media/26uTt19akcFxRFCy4/giphy.gif","https://media.giphy.com/media/3oz8xODcLLAxb8Qyju/giphy.gif","https://media.giphy.com/media/WxIBO7AsS6OJP02KRN/giphy.gif","https://media.giphy.com/media/bXvwCQglnTGKs/giphy.gif","https://media0.giphy.com/media/nygYqzhe3HB6w/giphy.gif?cid=3640f6095c91539c6a32307773c710a5","https://media1.giphy.com/media/l46CySTsO9JqWL8di/giphy.gif?cid=3640f6095c91539c6a32307773c710a5","https://media.tenor.com/images/40b5338a60e4a044f8905984c49f2967/tenor.gif"];
 const sanics = ["https://media.giphy.com/media/yXVO50FJIJMSQ/200w_d.gif","http://giphygifs.s3.amazonaws.com/media/S18kGlKwjxNp6/200w_d.gif","https://media.giphy.com/media/olrl89TCYdFew/200w_d.gif","https://media.giphy.com/media/yBgwe4ftOtvlm/200w_d.gif","https://media.giphy.com/media/FzuiifgDBL3Lq/200w_d.gif","https://media.giphy.com/media/6Se9YaWR4zqzm/200w_d.gif","https://media.giphy.com/media/14wX0gs76QxUsw/200w_d.gif","http://giphygifs.s3.amazonaws.com/media/mE0M2TVys8k6Y/200w_d.gif"];
 const yuhs = ["https://media.giphy.com/media/h37RZSg830CpG/giphy.gif"];
 const fortnite = new Discord.RichEmbed().setImage("https://i.redd.it/lwq9doves6g11.gif");
@@ -51,6 +51,7 @@ const bruhMoment = new Discord.RichEmbed().setImage("https://cdn.discordapp.com/
 const nono = new Discord.RichEmbed().setImage("https://media.giphy.com/media/jncYBUAyu4r8Jv7Z1f/giphy.gif")
 const jfc = new
     Discord.RichEmbed().setImage("https://cdn.discordapp.com/attachments/441701175025467404/671810944803930114/image0.jpg");
+const jueves = new Discord.RichEmbed().setImage("https://media1.tenor.com/images/28fc963091e05e1deb32e096c28f040f/tenor.gif");
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -74,7 +75,7 @@ var triggers = {
   "cash me outside":cashMeOutside,
   "jabbascript":jabbascript,
   "git gud":gitGud,
-  "nani":nani,
+  //"nani":nani,
   "backdoor":backdoor,
   "ianal":backdoor,
   "good bot":"fuck you!",
@@ -111,7 +112,8 @@ var triggers = {
   "bruh.*(moment)+":bruhMoment,
   "time": "What a time!",
   "no(no)+": nono,
-  "jfc|Jesus": jfc
+  "jfc|Jesus": jfc,
+  "(feliz)?jueves": jueves
 }
 
 // Change each value of `trigger` to be an array containing exactly two objects:
@@ -126,11 +128,29 @@ for(var i = 0; i < triggerlist.length; i++){
 
 var del = false;
 
-var dabReg = /dab/gi, yuhReg = /yuh/gi, sasReg = /sasuke/gi, emojiReg = /<a:/gi, emos=[];
+var dabReg = /dab/gi, yuhReg = /yuh/gi, sasReg = /sasuke/gi, emojiReg = /<a:/gi, emos=[], naniReg = /nani+?/gi, dabCap = /dab (\d+)$/gi;
 
 
 client.on('message', message => {
   if(message.author.bot) return;
+
+  //Build set of emojis per message, until we have a way to get guild without a message this will be done per message
+  var emojilist = Array.from(client.emojis.values());
+  var yep = "yep";
+  var tomgasm = "tomgasm";
+  for(var i = 0; i< emojilist.length; i++){
+      var key = emojilist[i].name.toLowerCase();
+      if(key === yep){
+          yep = emojilist[i];
+      }
+      if(key === tomgasm){
+          tomgasm = emojilist[i];
+      }
+      var value = emojilist[i];
+      var pattern = new RegExp("[^a-z]" + key + "[^a-z]", "i");
+      emojilist[i] = [pattern, value];
+  }
+
   if (message.channel.type === 'dm' && message.content.charAt(0) === '>') {
     var newMessage = "```css\n";
     var messageText = message.content;
@@ -170,11 +190,21 @@ client.on('message', message => {
     const count = (str) => {
       return ((str || '').match(dabReg) || []).length
     }
-    if (count(message.content.toLowerCase()) >= 3){
+    var multiDab = count(message.content.toLowerCase());
+    var dabIndex = Array.from(message.content.toLowerCase().matchAll(dabCap));
+    if (multiDab == 3 && dabIndex.length > 0 && dabIndex[0][1] < dabs.length){
+      const dab = new Discord.RichEmbed().setImage(dabs[dabIndex[0][1]]);
+      message.channel.send(dab);
+      console.log('Sent dab: '+dabIndex[0][1]);
+    }else if(multiDab >= 3){
       const dab = new Discord.RichEmbed().setImage(dabs[Math.floor(Math.random()*dabs.length)]);
       message.channel.send(dab);
       console.log('Sent triple dab');
     }
+  }
+  if (naniReg.test(message.content.toLowerCase())){
+    message.channel.send(nani);
+    console.log('Sent nani');
   }
   if (message.content.toLowerCase().includes("sanic")){
     const sanic = new Discord.RichEmbed().setImage(sanics[Math.floor(Math.random()*sanics.length)]);
@@ -189,6 +219,9 @@ client.on('message', message => {
       const yuh = new Discord.RichEmbed().setImage(yuhs[Math.floor(Math.random()*yuhs.length)]);
       message.channel.send(yuh);
       console.log('Sent triple yuh');
+    }else{
+      message.channel.send(`${yep}:eggplant::sweat_drops::sweat_drops:${tomgasm}`);
+      console.log('Sent one yuh');
     }
   }
   if (message.content.toLowerCase().includes("sasuke")){
@@ -273,15 +306,6 @@ client.on('message', message => {
   if (message.content.toLowerCase().includes("make money")){
     message.channel.send("Holla Holla Get Dolla!",{tts: true});
     console.log('Sent holla holla');
-  }
-
-  //Build set of emojis per message, until we have a way to get guild without a message this will be done per message
-  var emojilist = Array.from(message.guild.emojis.values());
-  for(var i = 0; i< emojilist.length; i++){
-      var key = emojilist[i].name.toLowerCase();
-      var value = emojilist[i];
-      var pattern = new RegExp("[^a-z]" + key + "[^a-z]", "i");
-      emojilist[i] = [pattern, value];
   }
 
   if (message.content.charAt(0) === '^') {
