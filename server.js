@@ -184,7 +184,11 @@ client.on('messageCreate', message => {
     var triggered = formattedText.match(pattern);
     if(triggered){
        console.log('Got pattern: '+pattern+' and media: '+media);
-       message.channel.send({embeds: [media]});
+       if(typeof media === 'object'){
+          message.channel.send({embeds: [media]});
+       }else{
+           message.channel.send(media);
+       }
        console.log('Sent trigger: ' + key);
     }
   }
