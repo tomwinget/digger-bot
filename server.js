@@ -133,7 +133,7 @@ var del = false;
 
 var dabReg = /dab/gi, yuhReg = /yuh/gi, sasReg = /sasuke/gi, emojiReg = /<a:/gi, emos=[], naniReg = /nani+?/gi, dabCap = /dab (\d+)$/gi;
 
-// these words or phrases are not allowed in vapeNays, and the user should be pointed to the proper channel
+// these words or phrases are not allowed in vapeNaysh, and the user should be pointed to the proper channel
 const vapeNayshBans = {
   "trump": "schoolhouse-rock",
   "president": "schoolhouse-rock",
@@ -369,7 +369,7 @@ client.on('messageCreate', message => {
         message.channel.send(`Uh-oh! the use of ${bannedPhrase} is not allowed in vape-naysh, please send those messages to #${intendedChannel}. Thank you!`);
         console.log('deleted message with banned keyword, directed user to proper channel');
       }
-    })
+    });
   }
 
   //If we reach here, for all the emojis in the guild, check if pattern matches and react
