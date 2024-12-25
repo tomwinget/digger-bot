@@ -359,7 +359,7 @@ client.on('messageCreate', message => {
   }
 
   //check for politics in main
-  if (message.channel_id == vapeNayshChannelId) {
+  if (message.channelId == vapeNayshChannelId) {
     let formattedMessage = message.content.toLowerCase();
     const bannedPhrases = Object.keys(vapeNayshBans);
     bannedPhrases.forEach(bannedPhrase => {
