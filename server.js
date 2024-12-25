@@ -133,6 +133,19 @@ var del = false;
 
 var dabReg = /dab/gi, yuhReg = /yuh/gi, sasReg = /sasuke/gi, emojiReg = /<a:/gi, emos=[], naniReg = /nani+?/gi, dabCap = /dab (\d+)$/gi;
 
+// these words or phrases are not allowed in vapeNays, and the user should be pointed to the proper channel
+const vapeNayshBans = {
+  "trump": "schoolhouse-rock",
+  "president": "schoolhouse-rock",
+  "gaetz": "schoolhouse-rock",
+  //frequently in urls for political articles
+  "/politics/": "schoolhouse-rock",
+  "kamala": "schoolhouse-rock",
+  "senator": "schoolhouse-rock",
+  "cruz": "schoolhouse-rock",
+}
+const vapeNayshChannelId = '436581339119222785';
+
 
 client.on('messageCreate', message => {
   if(message.author.bot) return;
@@ -343,6 +356,20 @@ client.on('messageCreate', message => {
         return;
       }
     }
+  }
+
+  //check for politics in main
+  if (message.channel_id == vapeNayshChannelId) {
+    let formattedMessage = message.content.toLowerCase();
+    const bannedPhrases = Object.keys(vapeNayshBans);
+    bannedPhrases.forEach(bannedPhrase => {
+      if (formattedMessage.includes(bannedPhrase)) {
+        const intendedChannel = vapeNayshBans[bannedPhrase];
+        message.delete();
+        message.channel.send(`Uh-oh! the use of ${bannedPhrase} is not allowed in vape-naysh, please send those messages to #${intendedChannel}. Thank you!`);
+        console.log('deleted message with banned keyword, directed user to proper channel');
+      }
+    })
   }
 
   //If we reach here, for all the emojis in the guild, check if pattern matches and react
