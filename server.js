@@ -53,6 +53,7 @@ const nono = new MessageEmbed().setImage("https://media.giphy.com/media/jncYBUAy
 const jfc = new
     MessageEmbed().setImage("https://cdn.discordapp.com/attachments/441701175025467404/671810944803930114/image0.jpg");
 const jueves = new MessageEmbed().setImage("https://media1.tenor.com/images/28fc963091e05e1deb32e096c28f040f/tenor.gif");
+const bonk = new MessageEmbed().setImage("https://cdn.discordapp.com/attachments/441701175025467404/1103783459622768667/dda.png");
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -114,7 +115,8 @@ var triggers = {
   "time": "What a time!",
   "no(no)+": nono,
   "jfc|Jesus": jfc,
-  "(feliz)?jueves": jueves
+  "(feliz)?jueves": jueves,
+  "bonk": bonk
 }
 
 // Change each value of `trigger` to be an array containing exactly two objects:
