@@ -54,6 +54,7 @@ const jfc = new
     MessageEmbed().setImage("https://cdn.discordapp.com/attachments/441701175025467404/671810944803930114/image0.jpg");
 const jueves = new MessageEmbed().setImage("https://media1.tenor.com/images/28fc963091e05e1deb32e096c28f040f/tenor.gif");
 const bonk = new MessageEmbed().setImage("https://cdn.discordapp.com/attachments/441701175025467404/1103783459622768667/dda.png");
+const nonono = new MessageEmbed().setImage("https://tenor.com/view/batman-nonono-nope-cartoon-gif-3476626");
 
 client.on('ready', () => {
   console.log('I am ready!');
@@ -144,10 +145,13 @@ const vapeNayshBans = {
   "senator": "schoolhouse-rock",
   " gop ": "schoolhouse-rock",
   "republican": "schoolhouse-rock",
-  "democrats": "schoolhouse-rock"
+  "democrats": "schoolhouse-rock",
+  "orange man ": "schoolhouse-rock",
+  " maga ": "schoolhouse-rock"
 }
 const vapeNayshChannelId = '436581339119222785';
-
+const schoolhouseRockChannelId = '530667354598932490';
+const botTestingChannelId = '441701175025467404';
 
 client.on('messageCreate', message => {
   if(message.author.bot) return;
@@ -362,28 +366,28 @@ client.on('messageCreate', message => {
 
   //check for politics in main
   if (message.channelId == vapeNayshChannelId) {
+    let originalMessage = message.content;
     let formattedMessage = message.content.toLowerCase();
     const bannedPhrases = Object.keys(vapeNayshBans);
     let nonoWords = "";
-    let approvedChannels = "";
+    let approvedChannels = `<#${schoolhouseRockChannelId}>`;
+    let botTestingChannelLink = `<#${botTestingChannelId}>`;
+    let userId = message.author.id;
     bannedPhrases.forEach(bannedPhrase => {
       if (formattedMessage.includes(bannedPhrase)) {
-        const intendedChannel = vapeNayshBans[bannedPhrase];
         if(nonoWords) {
           nonoWords += `, ${bannedPhrase}`; 
         } else {
           nonoWords = bannedPhrase;
         }
-        if(approvedChannels && !approvedChannels.includes(intendedChannel)) {
-          approvedChannels += `, #${intendedChannel}`; 
-        } else if (!approvedChannels){
-          approvedChannels = `#${intendedChannel}`;
-        }
       }
     });
       if (nonoWords) {
       message.delete();
-      message.channel.send(`Uh-oh! the use of these phrases: ${nonoWords} is not allowed in vape-naysh, please send those messages to their intended channels: ${approvedChannels}. Thank you!`);
+      const nonogif = new MessageEmbed().setImage(nonono);
+      message.channel.send({embeds: [nonogif]});
+      message.channel.send(`Uh-oh! the use of these phrase(s): ${nonoWords} is not encouraged in vape-naysh, please send those messages to their intended channel(s): ${approvedChannels}. If you have a question or concern, please refer them to ${botTestingChannelLink}. Thank you!`);
+      message.channel.send(`Here is <@${userId}>'s message, censored for safety: ||${originalMessage}||`);
       console.log('deleted message with banned keyword, directed user to proper channel');
       }
   }
