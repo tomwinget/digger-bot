@@ -364,8 +364,8 @@ client.on('messageCreate', message => {
     }
   }
 
-  //check for politics in main
-  if (message.channelId == vapeNayshChannelId) {
+  //check for politics in main or bot-testing
+  if (message.channelId == vapeNayshChannelId || message.channelId == botTestingChannelId) {
     let originalMessage = message.content;
     let formattedMessage = message.content.toLowerCase();
     const bannedPhrases = Object.keys(vapeNayshBans);
@@ -386,7 +386,7 @@ client.on('messageCreate', message => {
       message.delete();
       const nonogif = new MessageEmbed().setImage(nonono);
       message.channel.send({embeds: [nonogif]});
-      message.channel.send(`Uh-oh! the use of these phrase(s): ${nonoWords} is not encouraged in vape-naysh, please send those messages to their intended channel(s): ${approvedChannels}. If you have a question or concern, please refer them to ${botTestingChannelLink}. Thank you!`);
+      message.channel.send(`Uh-oh! the use of these phrase(s): "${nonoWords}" is not encouraged in vape-naysh, please send those messages to their intended channel(s): ${approvedChannels}. If you have a question or concern, please refer them to ${botTestingChannelLink}. Thank you!`);
       message.channel.send(`Here is <@${userId}>'s message, censored for safety: ||${originalMessage}||`);
       console.log('deleted message with banned keyword, directed user to proper channel');
       }
